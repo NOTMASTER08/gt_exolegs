@@ -1,5 +1,6 @@
 package net.notmaster.gtexolegs.common.item;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -101,7 +102,7 @@ public class ItemExoskeletonLegs extends Item implements ICurioItem {
             player.displayClientMessage(Component.translatable(toggleJumpBoost(player.getItemInHand(usedHand)) ?
                     "gtexolegs.tooltip.jump_boost.enabled" : "gtexolegs.tooltip.jump_boost.disabled"), true);
         }
-        return InteractionResultHolder.pass(player.getItemInHand(usedHand));
+        return InteractionResultHolder.success(player.getItemInHand(usedHand));
     }
 
     @Override

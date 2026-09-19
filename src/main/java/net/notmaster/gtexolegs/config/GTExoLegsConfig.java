@@ -29,18 +29,20 @@ public class GTExoLegsConfig {
     public double[] stepHeightModifiers = { 0.4, 0.4, 0.4, 0.4, 0.4 };
 
     @Configurable
-    @Configurable.Comment({ "Movement speed multiplier per tier", "Must be >= 0" })
+    @Configurable.Comment({ "Movement speed multiplier modifier per tier", "Must be >= 0" })
     @Configurable.FixedSize
     @Configurable.DecimalRange(min = 0)
     public double[] movementSpeedMultipliers = { 0.2, 0.4, 0.6, 0.8, 1.0 };
+
+    @Configurable
+    @Configurable.Comment({ "Creative flight speed multiplier per tier", "Must be >= 1" })
+    @Configurable.FixedSize
+    @Configurable.DecimalRange(min = 1.0F)
+    public float[] creativeFlightSpeedMultipliers = { 1.0F, 1.0F, 1.0F, 1.0F, 3.0F };
 
     @Configurable
     @Configurable.Comment({ "Jump boost modifier per tier", "Must be >= 0" })
     @Configurable.FixedSize
     @Configurable.DecimalRange(min = 0)
     public double[] jumpBoostModifiers = { 0.0, 0.1, 0.2, 0.3, 0.4 };
-
-    @Configurable
-    @Configurable.Comment({ "Enable or disable jump boost mechanic entirely" })
-    public boolean enableJumpBoost = true;
 }

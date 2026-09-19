@@ -1,6 +1,6 @@
-// 1.20.1	2025-03-11T06:32:22.521223603	Registrate Provider for gtexolegs [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
-498f107b05c7107daffb37eb2fa0a4a2a3c23856 assets/gtexolegs/lang/en_ud.json
-fab0b9d7b5a977534f0cb52d54f8ffd3f3a25304 assets/gtexolegs/lang/en_us.json
+// 1.20.1	2026-09-19T04:26:16.022707986	Registrate Provider for gtexolegs [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+ffe3fb3aa096ce2d6d9dbef3e9f868370bfe7d73 assets/gtexolegs/lang/en_ud.json
+1947efecbb1b0a4fe90b918e7814ff92b6dea9c8 assets/gtexolegs/lang/en_us.json
 b21f1e9250ec9d11b11089dd2a176d1ff6b41d54 assets/gtexolegs/models/item/ev_exoskeleton_legs.json
 f2cb6b9c423e9cf1b458cc0cdb4b68bdfb7e2550 assets/gtexolegs/models/item/hv_exoskeleton_legs.json
 abc6a68a5bdba5b33a9e8dcd6213c5afe51abc7d assets/gtexolegs/models/item/iv_exoskeleton_legs.json

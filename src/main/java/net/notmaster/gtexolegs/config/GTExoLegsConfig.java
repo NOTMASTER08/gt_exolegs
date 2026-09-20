@@ -45,4 +45,41 @@ public class GTExoLegsConfig {
     @Configurable.FixedSize
     @Configurable.DecimalRange(min = 0)
     public double[] jumpBoostModifiers = { 0.0, 0.1, 0.2, 0.3, 0.4 };
+
+    @Configurable
+    @Configurable.Comment({ "Jetpack multipliers per tier", "Must be >= 1" })
+    public static Jetpack jetpack = new Jetpack();
+
+    public static class Jetpack {
+
+        @Configurable
+        @Configurable.Comment({ "Base/slow vertical hover speed" })
+        @Configurable.FixedSize
+        @Configurable.DecimalRange(min = 1.0)
+        public double[] verticalHoverSlowMultiplier = {1.0, 1.0, 1.0, 1.0, 3.0};
+
+        @Configurable
+        @Configurable.Comment({ "Active vertical hover speed" })
+        @Configurable.FixedSize
+        @Configurable.DecimalRange(min = 1.0)
+        public double[] verticalHoverMultiplier = {1.0, 1.0, 1.0, 1.0, 3.0};
+
+        @Configurable
+        @Configurable.Comment({ "Vertical Acceleration" })
+        @Configurable.FixedSize
+        @Configurable.DecimalRange(min = 1.0)
+        public double[] verticalAccelerationMultiplier = {1.0, 1.0, 1.0, 1.0, 3.0};
+
+        @Configurable
+        @Configurable.Comment({ "Vertical Speed" })
+        @Configurable.FixedSize
+        @Configurable.DecimalRange(min = 1.0)
+        public double[] verticalSpeedMultiplier = {1.0, 1.0, 1.0, 1.0, 3.0};
+
+        @Configurable
+        @Configurable.Comment({ "Horizontal Speed" })
+        @Configurable.FixedSize
+        @Configurable.DecimalRange(min = 1.0)
+        public double[] horizontalSpeedMultiplier = {1.0, 1.0, 1.0, 1.0, 3.0};
+    }
 }

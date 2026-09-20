@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 
 public class ItemExoskeletonLegs extends Item implements ICurioItem {
 
-    enum Features {
+    public enum Features {
 
         JUMP_BOOST("jump_boost"),
         FLIGHT_MODIFIER("flight_modifier");
@@ -51,7 +51,7 @@ public class ItemExoskeletonLegs extends Item implements ICurioItem {
     private static final UUID JUMP_BOOST_MODIFIER_UUID = UUID.fromString("dfc1fb10-e6a6-4598-902c-8f22b0195b38");
     private static final String SELECTED_FEATURE_TAG = "selectedFeature";
 
-    private final int tier;
+    public final int tier;
 
     protected ItemExoskeletonLegs(Properties properties, int tier) {
         super(properties);
@@ -91,7 +91,7 @@ public class ItemExoskeletonLegs extends Item implements ICurioItem {
                 JUMP_BOOST_MODIFIER_UUID);
     }
 
-    private static boolean isFeatureEnabled(ItemStack stack, Features feature) {
+    public static boolean isFeatureEnabled(ItemStack stack, Features feature) {
         return stack.hasTag() && stack.getOrCreateTag().getBoolean(feature.key);
     }
 

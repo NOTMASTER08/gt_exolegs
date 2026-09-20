@@ -9,16 +9,15 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
-
 import net.notmaster.gtexolegs.common.item.ItemExoskeletonLegs;
 import net.notmaster.gtexolegs.config.GTExoLegsConfig;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import top.theillusivec4.curios.api.CuriosApi;
 
 import java.util.OptionalInt;
 
@@ -162,25 +161,11 @@ public interface GTMJetpackMixin {
     static void performEHover(ItemStack stack, Player player) {}
 
     @Unique
-    default OptionalInt gtexolegs$findEquippedTier(Player player) {
-        return CuriosApi.getCuriosInventory(player).map(curios -> {
-            for(var result : curios.findCurios("exoskeleton_legs")) {
-                if(result.stack().getItem() instanceof ItemExoskeletonLegs legs) {
-                    if(ItemExoskeletonLegs.isFeatureEnabled(result.stack(), ItemExoskeletonLegs.Features.FLIGHT_MODIFIER)) {
-                        return OptionalInt.of(legs.tier);
-                    }
-                }
-            }
-            return OptionalInt.empty();
-        }).orElse(OptionalInt.empty());
-    }
-
-    @Unique
     default double gtexolegs$modifiedVertialHoverSlowSpeed(Player player) {
         double multiplier = 1.0;
-        OptionalInt tier = gtexolegs$findEquippedTier(player);
-        if(tier.isPresent()) {
-            multiplier = GTExoLegsConfig.jetpack.verticalHoverSlowMultiplier[tier.getAsInt() -1];
+        OptionalInt tier = ItemExoskeletonLegs.findEquippedTier(player);
+        if (tier.isPresent()) {
+            multiplier = GTExoLegsConfig.INSTANCE.jetpack.verticalHoverSlowMultiplier[tier.getAsInt() - 1];
         }
         return getVerticalHoverSlowSpeed() * multiplier;
     }
@@ -188,9 +173,9 @@ public interface GTMJetpackMixin {
     @Unique
     default double gtexolegs$modifiedVerticalHoverSpeed(Player player) {
         double multiplier = 1.0;
-        OptionalInt tier = gtexolegs$findEquippedTier(player);
-        if(tier.isPresent()) {
-            multiplier = GTExoLegsConfig.jetpack.verticalHoverMultiplier[tier.getAsInt() -1];
+        OptionalInt tier = ItemExoskeletonLegs.findEquippedTier(player);
+        if (tier.isPresent()) {
+            multiplier = GTExoLegsConfig.INSTANCE.jetpack.verticalHoverMultiplier[tier.getAsInt() - 1];
         }
         return getVerticalHoverSpeed() * multiplier;
     }
@@ -198,9 +183,9 @@ public interface GTMJetpackMixin {
     @Unique
     default double gtexolegs$modifiedVerticalAcceleration(Player player) {
         double multiplier = 1.0;
-        OptionalInt tier = gtexolegs$findEquippedTier(player);
-        if(tier.isPresent()) {
-            multiplier = GTExoLegsConfig.jetpack.verticalAccelerationMultiplier[tier.getAsInt() -1];
+        OptionalInt tier = ItemExoskeletonLegs.findEquippedTier(player);
+        if (tier.isPresent()) {
+            multiplier = GTExoLegsConfig.INSTANCE.jetpack.verticalAccelerationMultiplier[tier.getAsInt() - 1];
         }
         return getVerticalAcceleration() * multiplier;
     }
@@ -208,9 +193,9 @@ public interface GTMJetpackMixin {
     @Unique
     default double gtexolegs$modifiedVerticalSpeed(Player player) {
         double multiplier = 1.0;
-        OptionalInt tier = gtexolegs$findEquippedTier(player);
-        if(tier.isPresent()) {
-            multiplier = GTExoLegsConfig.jetpack.verticalSpeedMultiplier[tier.getAsInt() -1];
+        OptionalInt tier = ItemExoskeletonLegs.findEquippedTier(player);
+        if (tier.isPresent()) {
+            multiplier = GTExoLegsConfig.INSTANCE.jetpack.verticalSpeedMultiplier[tier.getAsInt() - 1];
         }
         return getVerticalSpeed() * multiplier;
     }
@@ -218,9 +203,9 @@ public interface GTMJetpackMixin {
     @Unique
     default double gtexolegs$modifiedSidewaysSpeed(Player player) {
         double multiplier = 1.0;
-        OptionalInt tier = gtexolegs$findEquippedTier(player);
-        if(tier.isPresent()) {
-            multiplier = GTExoLegsConfig.jetpack.horizontalSpeedMultiplier[tier.getAsInt() -1];
+        OptionalInt tier = ItemExoskeletonLegs.findEquippedTier(player);
+        if (tier.isPresent()) {
+            multiplier = GTExoLegsConfig.INSTANCE.jetpack.horizontalSpeedMultiplier[tier.getAsInt() - 1];
         }
         return getSidewaysSpeed() * multiplier;
     }

@@ -1,0 +1,10 @@
+{
+  "required": "false",
+  "minVersion": "0.8",
+  "refmap": "gtexolegs.refmap.json",
+  "package": "net.notmaster.gtexolegs.core.mixins.compat.ironjetpacks",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "IronJetpackMixin",
+  ]
+}

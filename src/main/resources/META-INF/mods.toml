@@ -50,3 +50,9 @@ license = "${mod_license}"
       versionRange = "[${configuration_version},)"
       ordering = "AFTER"
       side = "BOTH"
+    [[dependencies.${mod_id}]]
+      modId = "ironjetpacks"
+      mandatory = false
+      versionRange = "[${ironjetpacks_version},]"
+      ordering = "AFTER"
+      side = "BOTH"

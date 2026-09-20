@@ -19,6 +19,7 @@ import net.notmaster.gtexolegs.common.entity.attribute.GTExoLegsAttributes;
 import net.notmaster.gtexolegs.config.GTExoLegsConfig;
 
 import org.jetbrains.annotations.Nullable;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
@@ -161,7 +162,8 @@ public class ItemExoskeletonLegs extends Item implements ICurioItem {
         }
         if (isFeatureEnabled(stack, Features.FLIGHT_MODIFIER)) {
             if (slotContext.entity() instanceof Player player) {
-                player.getAbilities().setFlyingSpeed(0.05F * GTExoLegsConfig.INSTANCE.creativeFlightSpeedMultipliers[tier - 1]);
+                player.getAbilities()
+                        .setFlyingSpeed(0.05F * GTExoLegsConfig.INSTANCE.creativeFlightSpeedMultipliers[tier - 1]);
                 player.onUpdateAbilities();
             }
         }
@@ -194,5 +196,19 @@ public class ItemExoskeletonLegs extends Item implements ICurioItem {
 
     public static ItemExoskeletonLegs create(Item.Properties properties, int tier) {
         return new ItemExoskeletonLegs(properties.stacksTo(1), tier);
+    }
+
+    public static OptionalInt findEquippedTier(Player player) {
+        return CuriosApi.getCuriosInventory(player).map(curios -> {
+            for (var result : curios.findCurios("exoskeleton_legs")) {
+                if (result.stack().getItem() instanceof ItemExoskeletonLegs legs) {
+                    if (ItemExoskeletonLegs.isFeatureEnabled(result.stack(),
+                            ItemExoskeletonLegs.Features.FLIGHT_MODIFIER)) {
+                        return OptionalInt.of(legs.tier);
+                    }
+                }
+            }
+            return OptionalInt.empty();
+        }).orElse(OptionalInt.empty());
     }
 }

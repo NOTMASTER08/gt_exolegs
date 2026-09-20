@@ -52,9 +52,9 @@ public class GTExoLegsConfig {
     public class Jetpack {
 
         @Configurable
-        @Configurable.Comment({ "Base/slow vertical hover speed multiplier per tier", "Must be >= 1" })
+        @Configurable.Comment({ "Base/slow vertical hover speed multiplier per tier", "Must be >= 0" })
         @Configurable.FixedSize
-        @Configurable.DecimalRange(min = 1.0)
+        @Configurable.DecimalRange(min = 0.0)
         public double[] verticalHoverSlowMultiplier = { 1.0, 1.0, 1.0, 1.0, 3.0 };
 
         @Configurable

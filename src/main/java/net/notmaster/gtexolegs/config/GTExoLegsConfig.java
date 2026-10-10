@@ -38,7 +38,7 @@ public class GTExoLegsConfig {
     @Configurable.Comment({ "Creative flight speed multiplier per tier", "Must be >= 1" })
     @Configurable.FixedSize
     @Configurable.DecimalRange(min = 1.0F)
-    public float[] creativeFlightSpeedMultipliers = { 1.0F, 1.0F, 1.0F, 1.0F, 3.0F };
+    public float[] creativeFlightSpeedMultipliers = { 1.5F, 2.0F, 2.5F, 3.0F, 3.5F };
 
     @Configurable
     @Configurable.Comment({ "Jump boost modifier per tier", "Must be >= 0" })
@@ -55,30 +55,30 @@ public class GTExoLegsConfig {
         @Configurable.Comment({ "Base/slow vertical hover speed multiplier per tier", "Must be >= 0" })
         @Configurable.FixedSize
         @Configurable.DecimalRange(min = 0.0)
-        public double[] verticalHoverSlowMultiplier = { 1.0, 1.0, 1.0, 1.0, 3.0 };
+        public double[] verticalHoverSlowMultiplier = { 1.3, 1.6, 1.9, 2.2, 2.5 };
 
         @Configurable
         @Configurable.Comment({ "Active vertical hover speed multiplier per tier", "Must be >= 1" })
         @Configurable.FixedSize
         @Configurable.DecimalRange(min = 1.0)
-        public double[] verticalHoverMultiplier = { 1.0, 1.0, 1.0, 1.0, 3.0 };
+        public double[] verticalHoverMultiplier = { 1.3, 1.6, 1.9, 2.2, 2.5 };
 
         @Configurable
         @Configurable.Comment({ "Vertical acceleration multiplier per tier", "Must be >= 1" })
         @Configurable.FixedSize
         @Configurable.DecimalRange(min = 1.0)
-        public double[] verticalAccelerationMultiplier = { 1.0, 1.0, 1.0, 1.0, 3.0 };
+        public double[] verticalAccelerationMultiplier = { 1.3, 1.6, 1.9, 2.2, 2.5 };
 
         @Configurable
         @Configurable.Comment({ "Vertical speed multiplier per tier", "Must be >= 1" })
         @Configurable.FixedSize
         @Configurable.DecimalRange(min = 1.0)
-        public double[] verticalSpeedMultiplier = { 1.0, 1.0, 1.0, 1.0, 3.0 };
+        public double[] verticalSpeedMultiplier = { 1.3, 1.6, 1.9, 2.2, 2.5 };
 
         @Configurable
         @Configurable.Comment({ "Horizontal speed multiplier per tier", "Must be >= 1" })
         @Configurable.FixedSize
         @Configurable.DecimalRange(min = 1.0)
-        public double[] horizontalSpeedMultiplier = { 1.0, 1.0, 1.0, 1.0, 3.0 };
+        public double[] horizontalSpeedMultiplier = { 1.8, 2.6, 3.4, 4.2, 5.0 };
     }
 }
